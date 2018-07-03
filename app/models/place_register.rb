@@ -1,0 +1,2 @@
+class PlaceRegister < ApplicationRecord
+end

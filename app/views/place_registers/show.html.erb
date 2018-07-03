@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @place_register.type %>
+</p>
+
+<p>
+  <strong>Area name:</strong>
+  <%= @place_register.area_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @place_register.description %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @place_register.address %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @place_register.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @place_register.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_place_register_path(@place_register) %> |
+<%= link_to 'Back', place_registers_path %>

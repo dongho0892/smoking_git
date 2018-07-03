@@ -1,0 +1,52 @@
+<%= form_for(smoking_area) do |f| %>
+  <% if smoking_area.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(smoking_area.errors.count, "error") %> prohibited this smoking_area from being saved:</h2>
+
+      <ul>
+      <% smoking_area.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :area_name %>
+    <%= f.text_field :area_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :latitude %>
+    <%= f.number_field :latitude %>
+  </div>
+
+  <div class="field">
+    <%= f.label :longitude %>
+    <%= f.number_field :longitude %>
+  </div>
+
+  <div class="field">
+    <%= f.label :area_catagory %>
+    <%= f.text_field :area_catagory %>
+  </div>
+
+  <div class="field">
+    <%= f.label :statute %>
+    <%= f.text_field :statute %>
+  </div>
+
+  <div class="field">
+    <%= f.label :penalty %>
+    <%= f.number_field :penalty %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

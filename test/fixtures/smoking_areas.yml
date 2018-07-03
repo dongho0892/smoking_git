@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  area_name: MyString
+  latitude: 1
+  longitude: 1
+  area_catagory: MyString
+  statute: MyString
+  penalty: 1
+  address: MyString
+
+two:
+  area_name: MyString
+  latitude: 1
+  longitude: 1
+  area_catagory: MyString
+  statute: MyString
+  penalty: 1
+  address: MyString

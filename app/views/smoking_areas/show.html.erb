@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Area name:</strong>
+  <%= @smoking_area.area_name %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @smoking_area.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @smoking_area.longitude %>
+</p>
+
+<p>
+  <strong>Area catagory:</strong>
+  <%= @smoking_area.area_catagory %>
+</p>
+
+<p>
+  <strong>Statute:</strong>
+  <%= @smoking_area.statute %>
+</p>
+
+<p>
+  <strong>Penalty:</strong>
+  <%= @smoking_area.penalty %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @smoking_area.address %>
+</p>
+
+<%= link_to 'Edit', edit_smoking_area_path(@smoking_area) %> |
+<%= link_to 'Back', smoking_areas_path %>

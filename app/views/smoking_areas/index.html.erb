@@ -1,0 +1,111 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Smoking Areas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Area name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Area catagory</th>
+      <th>Statute</th>
+      <th>Penalty</th>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @smoking_areas.each do |smoking_area| %>
+      <tr>
+        <td><%= smoking_area.area_name %></td>
+        <td><%= smoking_area.latitude %></td>
+        <td><%= smoking_area.longitude %></td>
+        <td><%= smoking_area.area_catagory %></td>
+        <td><%= smoking_area.statute %></td>
+        <td><%= smoking_area.penalty %></td>
+        <td><%= smoking_area.address %></td>
+        <td><%= link_to 'Show', smoking_area %></td>
+        <td><%= link_to 'Edit', edit_smoking_area_path(smoking_area) %></td>
+        <td><%= link_to 'Destroy', smoking_area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Smoking Area', new_smoking_area_path %>
+
+
+<!-- -->
+<!-- -->
+<!-- -->
+
+<div id="map" style="width:100%;height:350px;"></div>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1ff16577c702fbde5a0877cc98c9dee0"></script>
+
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new daum.maps.LatLng(37.4977796, 127.0755652), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };  
+
+var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+var latitude = 37.4977796
+var longitude = 127.0755652   // 위도 경도 자료 위치
+
+
+
+
+// 지도에 표시할 원을 생성합니다
+var circle = new daum.maps.Circle({
+    center : new daum.maps.LatLng(37.4977796, 127.0755652),  // 원의 중심좌표 입니다 
+    radius: 20, // 미터 단위의 원의 반지름입니다 
+    strokeWeight: 1, // 선의 두께입니다 
+    strokeColor: '#b30000', // 선의 색깔입니다
+    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+    strokeStyle: 'solid', // 선의 스타일 입니다
+    fillColor: '#b30000', // 채우기 색깔입니다
+    fillOpacity: 0.7  // 채우기 불투명도 입니다   
+}); 
+
+// 지도에 원을 표시합니다 
+circle.setMap(map); 
+
+
+
+
+
+
+
+
+
+
+
+var sw = new daum.maps.LatLng(latitude + 0.0002, longitude + 0.0002), // 사각형 영역의 남서쪽 좌표
+    ne = new daum.maps.LatLng(latitude - 0.0002, longitude - 0.0002); // 사각형 영역의 북동쪽 좌표
+
+// 사각형을 구성하는 영역정보를 생성합니다
+// 사각형을 생성할 때 영역정보는 LatLngBounds 객체로 넘겨줘야 합니다
+var rectangleBounds = new daum.maps.LatLngBounds(sw, ne);
+
+// 지도에 표시할 사각형을 생성합니다
+var rectangle = new daum.maps.Rectangle({
+    bounds: rectangleBounds, // 그려질 사각형의 영역정보입니다
+    strokeWeight: 1, // 선의 두께입니다
+    strokeColor: '#79ff4d', // 선의 색깔입니다
+    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+    strokeStyle: 'solid', // 선의 스타일입니다
+    fillColor: '#79ff4d', // 채우기 색깔입니다
+    fillOpacity: 0.7 // 채우기 불투명도 입니다
+});
+
+// 지도에 사각형을 표시합니다
+rectangle.setMap(map);
+
+
+</script>
